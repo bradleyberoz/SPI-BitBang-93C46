@@ -1,7 +1,5 @@
 /****
-Applicant Name: Bradley Beroz Date: 04/25/2025
-Interview: BitBang 1
-Digitize inc
+BitBang through SPI with Arduino on A93C46 EEPROM
 ****/
 
 #define CS 2

@@ -182,91 +182,91 @@ void loop() {
   while(Serial.available()==0);  // wait for input
   ch= Serial.read();   // Note - Handle CR LF on input
 
-switch (ch) {
-
-case '1':
-Serial.println("1 - Dump NVram");
-// Implement code to read all the address and print the result
-// Read all addresses and print values
-//for (int i = 0; i < 128; i++)
-//{
-//  Serial.println(EEPROM_read(i), HEX);
-//  digitalWrite(CS, LOW);
-//}
-
-Serial.println(EEPROM_read(4), HEX);
-digitalWrite(CS, LOW);
-
-
-
-break;
-
-case '2':
-Serial.print("EWEN Write Enable");
-EEPROM_ewen();
-Serial.println(" - Done");
-break;
-
-case '3':
-Serial.print("EWDS Write DISable");
-EEPROM_ewds();
-Serial.println(" - Done");
-break;
-
-case '4':
-Serial.print("WRAL Write ALL = 0xA5");
-EEPROM_wral(0xA5);
-Serial.println(" - Done");
-break;
-
-case '5':
-Serial.print("ERAL Erase ALL");
-//EEPROM_eral();
-Serial.println(" - Done");
-break;
-
-case '6':
-Serial.print("Write 0:12,34,56,78,9A,BC,DE,FA");
-
-EEPROM_write(4,0x9A);
-
-Serial.println(" - Done");
-break;
-
-case '7':
-Serial.print("Write 0:22,44,66,88,AA,BB,CC,DD");
-EEPROM_write(0,0x22);
-EEPROM_write(1,0x44);
-EEPROM_write(2,0x66);
-EEPROM_write(3,0x88);
-EEPROM_write(4,0xAA);
-EEPROM_write(5,0xBB);
-EEPROM_write(6,0xCC);
-EEPROM_write(7,0xDD);
-Serial.println(" - Done");
-break;
-case '8':
-Serial.print("Erase 0, 3,4, 7");
-//EEPROM_erase(0);
-//EEPROM_erase(3);
-//EEPROM_erase(4);
-//EEPROM_erase(7);
-Serial.println(" - Done");
-break;
-
-case '9':
-Serial.println("9 - Write Sequential numbers");
-
-// Write first 128 ASCII characters
-for (int i = 0; i < 128; i++)
-{
-EEPROM_write(i, i);
-}
-Serial.print("Sequential numbers written");
-break;
-
-default:
-break;
-
-}
+  switch (ch) {
+  
+  case '1':
+  Serial.println("1 - Dump NVram");
+  // Implement code to read all the address and print the result
+  // Read all addresses and print values
+  //for (int i = 0; i < 128; i++)
+  //{
+  //  Serial.println(EEPROM_read(i), HEX);
+  //  digitalWrite(CS, LOW);
+  //}
+  
+  Serial.println(EEPROM_read(4), HEX);
+  digitalWrite(CS, LOW);
+  
+  
+  
+  break;
+  
+  case '2':
+  Serial.print("EWEN Write Enable");
+  EEPROM_ewen();
+  Serial.println(" - Done");
+  break;
+  
+  case '3':
+  Serial.print("EWDS Write DISable");
+  EEPROM_ewds();
+  Serial.println(" - Done");
+  break;
+  
+  case '4':
+  Serial.print("WRAL Write ALL = 0xA5");
+  EEPROM_wral(0xA5);
+  Serial.println(" - Done");
+  break;
+  
+  case '5':
+  Serial.print("ERAL Erase ALL");
+  //EEPROM_eral();
+  Serial.println(" - Done");
+  break;
+  
+  case '6':
+  Serial.print("Write 0:12,34,56,78,9A,BC,DE,FA");
+  
+  EEPROM_write(4,0x9A);
+  
+  Serial.println(" - Done");
+  break;
+  
+  case '7':
+  Serial.print("Write 0:22,44,66,88,AA,BB,CC,DD");
+  EEPROM_write(0,0x22);
+  EEPROM_write(1,0x44);
+  EEPROM_write(2,0x66);
+  EEPROM_write(3,0x88);
+  EEPROM_write(4,0xAA);
+  EEPROM_write(5,0xBB);
+  EEPROM_write(6,0xCC);
+  EEPROM_write(7,0xDD);
+  Serial.println(" - Done");
+  break;
+  case '8':
+  Serial.print("Erase 0, 3,4, 7");
+  //EEPROM_erase(0);
+  //EEPROM_erase(3);
+  //EEPROM_erase(4);
+  //EEPROM_erase(7);
+  Serial.println(" - Done");
+  break;
+  
+  case '9':
+  Serial.println("9 - Write Sequential numbers");
+  
+  // Write first 128 ASCII characters
+  for (int i = 0; i < 128; i++)
+  {
+  EEPROM_write(i, i);
+  }
+  Serial.print("Sequential numbers written");
+  break;
+  
+  default:
+  break;
+  
+  }
 }
